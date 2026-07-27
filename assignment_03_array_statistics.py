@@ -1,4 +1,4 @@
-# =============================================================================
+=====================================================================
 # PROGRAMMING FUNDAMENTALS — Assignment 3
 # Topic: Lists (Arrays), Loops, and Functions
 # =============================================================================
@@ -39,3 +39,67 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+# def get_numbers():
+    """Prompt the user for how many numbers to enter, then collect them."""
+    count = int(input("How many numbers? "))
+
+    numbers = []
+    for i in range(1, count + 1):
+        value = float(input(f"Enter number {i}: "))
+        numbers.append(value)
+
+    return numbers
+
+
+def calculate_sum(numbers):
+    """Return the sum of all numbers in the list."""
+    total = 0
+    for num in numbers:
+        total += num
+    return total
+
+
+def calculate_average(numbers):
+    """Return the average of all numbers in the list."""
+    return calculate_sum(numbers) / len(numbers)
+
+
+def calculate_max(numbers):
+    """Return the largest number in the list."""
+    largest = numbers[0]
+    for num in numbers:
+        if num > largest:
+            largest = num
+    return largest
+
+
+def calculate_min(numbers):
+    """Return the smallest number in the list."""
+    smallest = numbers[0]
+    for num in numbers:
+        if num < smallest:
+            smallest = num
+    return smallest
+
+
+def main():
+    numbers = get_numbers()
+
+    total = calculate_sum(numbers)
+    average = calculate_average(numbers)
+    maximum = calculate_max(numbers)
+    minimum = calculate_min(numbers)
+
+    # Format numbers cleanly: show as int if they're whole numbers
+    def fmt(n):
+        return int(n) if n == int(n) else n
+
+    print("\nResults:")
+    print(f"Sum:     {fmt(total)}")
+    print(f"Average: {round(average, 2)}")
+    print(f"Maximum: {fmt(maximum)}")
+    print(f"Minimum: {fmt(minimum)}")
+
+
+if __name__ == "__main__":
+    main()========

@@ -1,4 +1,52 @@
-# =============================================================================
+# # =============================================================================
+
+def print_table(number):
+    """Print the multiplication table for a single number, 1 to 12."""
+    print(f"Multiplication Table for {number}:")
+    for i in range(1, 13):
+        product = number * i
+        print(f"{number}  x  {i:<2} =  {product}")
+
+
+def print_tables_up_to(n):
+    """Print multiplication tables for every number from 1 to n."""
+    if n <= 0:
+        return None  # signals invalid input to the caller
+
+    for number in range(1, n + 1):
+        print_table(number)
+        if number != n:
+            print("-" * 29)
+
+    return True
+
+
+def part_a():
+    """Ask for a number and print its multiplication table."""
+    number = int(input("Enter a number: "))
+    print_table(number)
+
+
+def part_b():
+    """Ask for N and print multiplication tables from 1 to N."""
+    n = int(input("Enter N: "))
+
+    result = print_tables_up_to(n)
+
+    if result is None:
+        print("Error: N must be a positive integer.")
+
+
+def main():
+    print("=== Part A: Single Multiplication Table ===")
+    part_a()
+
+    print("\n=== Part B: Tables from 1 to N ===")
+    part_b()
+
+
+if __name__ == "__main__":
+    main()=============================================================================
 # PROGRAMMING FUNDAMENTALS — Assignment 6
 # Topic: Loops and Functions
 # =============================================================================

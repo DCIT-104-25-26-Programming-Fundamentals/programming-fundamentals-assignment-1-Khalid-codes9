@@ -1,4 +1,63 @@
-# =============================================================================
+# def generate_fibonacci(n):
+    """Return a list of the first n Fibonacci numbers, using a loop."""
+    if n <= 0:
+        return None  # signals invalid input to the caller
+
+    sequence = []
+    a, b = 0, 1
+    for _ in range(n):
+        sequence.append(a)
+        a, b = b, a + b
+
+    return sequence
+
+
+def is_fibonacci(number):
+    """Return True if number is a Fibonacci number, False otherwise."""
+    if number < 0:
+        return False
+
+    # Generate Fibonacci numbers with a loop until we reach or pass "number"
+    a, b = 0, 1
+    while a < number:
+        a, b = b, a + b
+
+    return a == number
+
+
+def part_a():
+    """Ask for N and print the first N Fibonacci terms."""
+    n = int(input("How many terms? "))
+
+    sequence = generate_fibonacci(n)
+
+    if sequence is None:
+        print("Error: N must be a positive integer.")
+    else:
+        terms = " ".join(str(num) for num in sequence)
+        print(f"Fibonacci sequence: {terms}")
+
+
+def part_b():
+    """Ask for a number and check if it belongs to the Fibonacci sequence."""
+    number = int(input("Enter a number to check: "))
+
+    if is_fibonacci(number):
+        print(f"{number} is a Fibonacci number.")
+    else:
+        print(f"{number} is NOT a Fibonacci number.")
+
+
+def main():
+    print("=== Part A: First N Fibonacci Terms ===")
+    part_a()
+
+    print("\n=== Part B: Check if a Number is Fibonacci ===")
+    part_b()
+
+
+if __name__ == "__main__":
+    main()=============================================================================
 # PROGRAMMING FUNDAMENTALS — Assignment 5
 # Topic: Loops, Sequences, and Functions
 # =============================================================================

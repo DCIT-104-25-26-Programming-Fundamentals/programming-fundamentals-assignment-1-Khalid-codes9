@@ -1,4 +1,14 @@
+# # =============================================================================
+# PROGRAMMING FUNDAMENTALS — Assignment 1
+# Topic: Conditional Logic, Loops, and Functions
 # =============================================================================
+#
+# TASK: Prime Number Checker
+#
+# Write a Python program that checks whether a given number is prime.
+# =============================================================================
+
+
 # PROGRAMMING FUNDAMENTALS — Assignment 1
 # Topic: Conditional Logic, Loops, and Functions
 # =============================================================================
@@ -34,4 +44,27 @@
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
+def is_prime(n):
+    """Return True if n is a prime number, False otherwise."""
+    # Numbers less than 2 are never prime
+    if n < 2:
+        return False
+    for divisor in range(2, int(n ** 0.5) + 1):
+        if n % divisor == 0:
+            return False
+
+    return True
+
+
+def main():
+    number = int(input("Enter a number: "))
+
+    if is_prime(number):
+        print(f"{number} is a prime number.")
+    else:
+        print(f"{number} is NOT a prime number.")
+
+
+if __name__ == "__main__":
+    main()
 
